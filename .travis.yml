@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sahmwanga/budget-client -f Dockerfile.dev .
+
+script:
+  - docker run sahmwanga/budget-client npm run test -- --coverage
